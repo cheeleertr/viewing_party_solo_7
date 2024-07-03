@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?query=Interstellar
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Api-Key:
+      - DONT_SHARE_MY_SECRET_KEY
+      User-Agent:
+      - Faraday v2.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 03 Jul 2024 04:22:45 GMT
+      Server:
+      - openresty
+      Cache-Control:
+      - public, max-age=300
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 cf93ddd891bc471fda8e09a1b48ed252.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - MSP50-P1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - JGh7VFVW4sFZBtxR7k7NQ583Al2ywKcEBMz0pdTb99LQc-4mkwjpyQ==
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: '{"status_code":7,"status_message":"Invalid API key: You must be granted
+        a valid key.","success":false}
+
+        '
+  recorded_at: Wed, 03 Jul 2024 04:22:45 GMT
+recorded_with: VCR 6.2.0
