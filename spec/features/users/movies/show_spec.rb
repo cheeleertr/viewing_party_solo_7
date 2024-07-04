@@ -25,11 +25,9 @@ RSpec.describe 'Movie Show', type: :feature do
     it 'has buttons to create viewing party and return to discover page', :vcr do
       movie = TmdbFacade.new.get_movie_by_id(157336)
       visit user_movie_path(@user_1.id, movie.id)
-# save_and_open_page
+save_and_open_page
       expect(page).to have_button('Create Viewing Party')
       expect(page).to have_button('Discover Top Rated Movies')
-      
-
     end
 
     it 'has movie attributes' do
@@ -41,9 +39,22 @@ RSpec.describe 'Movie Show', type: :feature do
       expect(page).to have_content("Runtime: #{movie.runtime}")
       expect(page).to have_content("Genres: #{movie.genre}")
       expect(page).to have_content("Summary: #{movie.overview}")
-      # expect(page).to have_content("Cast: ")
+
+      within ("#cast") do
+        expect(page).to have_content("Cast:")
+        expect(page).to have_css(".cast_member")
+      end
+
       expect(page).to have_content("Total Reviews: #{movie.review_count}")
-      # expect(page).to have_content("Reviewers: ")
+
+      within (".reviews") do
+        expect(page).to have_content("Reviews:")
+        within(first(".review")) do
+          expect(page).to have_css(".author")
+          expect(page).to have_css(".rating")
+          expect(page).to have_css(".content")
+        end
+      end
     end
   end
 end
