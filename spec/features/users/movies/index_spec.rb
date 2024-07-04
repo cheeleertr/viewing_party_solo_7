@@ -18,6 +18,9 @@ RSpec.describe 'Movie Index', type: :feature do
 
       within(first(".movie")) do
         expect(page).to have_css(".title")
+        within(".title") do
+          expect(page).to have_link("")
+        end
         expect(page).to have_css(".vote_average")
       end
 

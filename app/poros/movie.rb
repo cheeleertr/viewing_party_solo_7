@@ -16,9 +16,7 @@ class Movie
     @runtime = format_runtime(movie_data[:runtime])
     @genre = format_genre(movie_data[:genres])
     @overview = movie_data[:overview]
-    # @cast = format_cast_to_name_and_character(movie_data[:credits][:cast])
     @cast = format_cast_to_name_and_character(movie_data.dig(:credits, :cast))
-    # @review_count = movie_data[:reviews][:total_results]
     @review_count = movie_data.dig(:reviews, :total_results)
     @reviewers = movie_data.dig(:reviews, :results)
     #maybe create reviewer objects later
@@ -38,7 +36,7 @@ class Movie
     if genre_data.nil?
       nil
     else
-      genre_data.map {|genre| genre[:name]}
+      genre_data.map {|genre| genre[:name]}.join(", ")
     end
   end
 

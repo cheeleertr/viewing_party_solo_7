@@ -16,7 +16,7 @@ RSpec.describe Movie do
     expect(movie.id).to eq(157336)
     expect(movie.vote_average).to eq(8.436)
     expect(movie.runtime).to eq("2h 49min")
-    expect(movie.genre).to eq(["Adventure", "Drama", "Science Fiction"])
+    expect(movie.genre).to eq("Adventure, Drama, Science Fiction")
     expect(movie.overview).to eq("The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.")
     expect(movie.cast).to eq(
       [{:character=>"Cooper", :name=>"Matthew McConaughey"},

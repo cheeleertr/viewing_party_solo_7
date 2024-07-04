@@ -22,30 +22,28 @@ RSpec.describe 'Movie Show', type: :feature do
   # - Each review's author and information
   
   describe 'movie details' do
-    xit 'has buttons to create viewing party and return to discover page' do
-      @movie 
-      visit user_movie_path(@user_1.id, @movie.id)
-
+    it 'has buttons to create viewing party and return to discover page', :vcr do
+      movie = TmdbFacade.new.get_movie_by_id(157336)
+      visit user_movie_path(@user_1.id, movie.id)
+# save_and_open_page
       expect(page).to have_button('Create Viewing Party')
       expect(page).to have_button('Discover Top Rated Movies')
       
 
     end
 
-    xit 'has movie attributes' do
-      visit "/users/#{@user_1.id}/discover"
+    it 'has movie attributes' do
+      movie = TmdbFacade.new.get_movie_by_id(157336)
+      visit user_movie_path(@user_1.id, movie.id)
 
-      fill_in "search", with: "Interstellar"
-      click_button('Search')
-
-      expect(page).to have_content('Movie: ')
-      expect(page).to have_content('Vote Average: ')
-      expect(page).to have_content('Runtime: hrs, min')
-      expect(page).to have_content('Genres: ')
-      expect(page).to have_content('Summary: ')
-      expect(page).to have_content('Cast: ')
-      expect(page).to have_content('Total Reviews: ')
-      expect(page).to have_content('Reviewer Info: ')
+      expect(page).to have_content("Movie: #{movie.title}")
+      expect(page).to have_content("Rating: #{movie.vote_average}")
+      expect(page).to have_content("Runtime: #{movie.runtime}")
+      expect(page).to have_content("Genres: #{movie.genre}")
+      expect(page).to have_content("Summary: #{movie.overview}")
+      # expect(page).to have_content("Cast: ")
+      expect(page).to have_content("Total Reviews: #{movie.review_count}")
+      # expect(page).to have_content("Reviewers: ")
     end
   end
 end

@@ -1,11 +1,27 @@
+<%= button_to "Discover Top Rated Movies", user_movies_path(@user), method: :get %>
+<%= button_to "Create Viewing Party", new_user_movie_viewing_party_path(@user, @movie), method: :get %>
 
-<h2>Movie: <%=@movie[:title]%></h2>
-<ul>
-  <li>Vote Average: <%=@movie[:vote_average]%></li>
-  <li>Runtime: <%=@movie[:runtime]%></li>
-  <li>Genres: <%=@movie[:genre_id]%></li>
-  <li>Summary: <%=@movie[:overview]%></li>
-  <li>Cast: <%=@movie[:cast]%></li>
-  <li>Total Reviews: <%=@movie[:review]%></li>
-  <li>Reviewer Info: <%=@movie[:Reviewer Info]%></li>
-</ul>
+<h2>Movie: <%= @movie.title %></h2>
+
+  <div>Rating: <%= @movie.vote_average %></div><br>
+  <div>Runtime: <%= @movie.runtime %></div><br>
+  <div>Genres: <%= @movie.genre %></div><br>
+  <div>Summary: <%= @movie.overview %></div><br>
+  <div>Cast: <br>
+    <% @movie.cast.each do |cast_member| %>
+      <%= "#{cast_member[:name]} as #{cast_member[:character]}" %><br>
+    <% end %>
+  </div><br>
+  <div>Total Reviews: <%= @movie.review_count %></div><br>
+  <div>Reviews: 
+    <% @movie.reviewers.each do |reviewer| %>
+      <ul>
+        <li>Author: <%= reviewer[:author] %><br>
+        Rating: <%= reviewer[:author_details][:rating] %><br>
+        Content: <%= reviewer[:content] %><br>
+        </li>
+      </ul>
+    <% end %>
+  
+  </div>
+
