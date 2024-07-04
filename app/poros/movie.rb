@@ -13,7 +13,7 @@ class Movie
     @id = movie_data[:id]
     @title = movie_data[:original_title]
     @vote_average = movie_data[:vote_average]
-    @runtime = format_runtime(movie_data[:runtime])
+    @runtime = movie_data[:runtime]
     @genre = format_genre(movie_data[:genres])
     @overview = movie_data[:overview]
     @cast = format_cast_to_name_and_character(movie_data.dig(:credits, :cast))
@@ -28,7 +28,7 @@ class Movie
     else
       hours = total_minutes / 60
       minutes = (total_minutes) % 60
-      "#{ hours }h #{ minutes }min"
+      "#{hours}h #{minutes}min"
     end
   end
 

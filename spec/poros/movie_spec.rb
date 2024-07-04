@@ -15,7 +15,7 @@ RSpec.describe Movie do
     expect(movie.title).to eq("Interstellar")
     expect(movie.id).to eq(157336)
     expect(movie.vote_average).to eq(8.436)
-    expect(movie.runtime).to eq("2h 49min")
+    expect(movie.runtime).to eq(169)
     expect(movie.genre).to eq("Adventure, Drama, Science Fiction")
     expect(movie.overview).to eq("The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.")
     expect(movie.cast).to eq(
@@ -34,8 +34,10 @@ RSpec.describe Movie do
     expect(movie.reviewers).to be_a Array
     expect(movie.reviewers).to be_all Hash
   end
-  # it "#format_runtime" do
 
-  # expect()
-  # end
+  it "#format_runtime", :vcr do
+    json = TmdbService.get_movie_by_id(157336)
+    movie = Movie.new(json)
+      expect(movie.format_runtime(130)).to eq("2h 10min")
+  end
 end

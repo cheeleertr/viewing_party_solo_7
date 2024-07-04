@@ -11,8 +11,6 @@ class MoviesController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    #update later
-    #search api by movie id?
     @movie = TmdbFacade.new.get_movie_by_id(params[:id])
   end
 end

@@ -1,10 +1,10 @@
-<%= button_to "Discover Top Rated Movies", user_movies_path(@user), method: :get %>
 <%= button_to "Create Viewing Party", new_user_movie_viewing_party_path(@user, @movie), method: :get %>
+<%= button_to "Discover Top Rated Movies", user_movies_path(@user), method: :get %>
 
 <h2>Movie: <%= @movie.title %></h2>
 
   <div>Rating: <%= @movie.vote_average %></div><br>
-  <div>Runtime: <%= @movie.runtime %></div><br>
+  <div>Runtime: <%= @movie.format_runtime(@movie.runtime) %></div><br>
   <div>Genres: <%= @movie.genre %></div><br>
   <div>Summary: <%= @movie.overview %></div><br>
   <div id="cast">Cast: <br>
