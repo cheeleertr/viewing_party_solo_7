@@ -10,7 +10,7 @@ RSpec.describe 'Discover Index', type: :feature do
 # - a Button to Discover Top Rated Movies
 # - a text field to enter keyword(s) to search by movie title
 # - a Button to Search by Movie Title
-  describe '' do
+  describe 'has buttons to search movies', :vcr do
     it 'has button to discover top rate movies' do
       visit "/users/#{@user_1.id}/discover"
 
@@ -20,7 +20,7 @@ RSpec.describe 'Discover Index', type: :feature do
       expect(current_path).to eq(user_movies_path(@user_1))
     end
 
-    it 'can search for movie by movie title' do
+    it 'can search for movie by movie title', :vcr do
       visit "/users/#{@user_1.id}/discover"
 
       fill_in "search", with: "Interstellar"

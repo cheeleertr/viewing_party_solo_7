@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Discover Index', type: :feature do
+RSpec.describe 'Movie Index', type: :feature do
   before(:each) do
     @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com')
   end

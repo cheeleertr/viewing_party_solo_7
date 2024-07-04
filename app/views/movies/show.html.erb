@@ -1,1 +1,11 @@
-<h2><%=@movie.title%></h2>
+
+<h2>Movie: <%=@movie[:title]%></h2>
+<ul>
+  <li>Vote Average: <%=@movie[:vote_average]%></li>
+  <li>Runtime: <%=@movie[:runtime]%></li>
+  <li>Genres: <%=@movie[:genre_id]%></li>
+  <li>Summary: <%=@movie[:overview]%></li>
+  <li>Cast: <%=@movie[:cast]%></li>
+  <li>Total Reviews: <%=@movie[:review]%></li>
+  <li>Reviewer Info: <%=@movie[:Reviewer Info]%></li>
+</ul>
