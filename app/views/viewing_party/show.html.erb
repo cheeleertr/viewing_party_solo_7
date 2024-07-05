@@ -1,0 +1,25 @@
+<p>Buy/Rent data provided by JustWatch</p>
+
+<div>
+  <h2>Where to Buy:</h2>
+  <% @movie.buy_providers.each do |provider| %>
+  <div class="seller">
+    <%= provider[:provider] %>
+    <div class="image">
+      <%= image_tag("https://image.tmdb.org/t/p/w200/#{provider[:logo_path]}", alt: provider[:provider]) %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<div>
+  <h2>Where to Rent:</h2>
+  <% @movie.rent_providers.each do |provider| %>
+  <div class="renter">
+    <%= provider[:provider] %>
+    <div class="image">
+      <%= image_tag("https://image.tmdb.org/t/p/w200/#{provider[:logo_path]}", alt: provider[:provider]) %>
+    </div>
+  </div><br><br>
+  <% end %>
+</div>

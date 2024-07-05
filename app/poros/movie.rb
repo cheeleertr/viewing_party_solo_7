@@ -7,7 +7,9 @@ class Movie
               :overview, 
               :cast, 
               :review_count, 
-              :reviewers
+              :reviewers,
+              :buy_providers,
+              :rent_providers
 
   def initialize(movie_data)
     @id = movie_data[:id]
@@ -19,6 +21,8 @@ class Movie
     @cast = format_cast_to_name_and_character(movie_data.dig(:credits, :cast))
     @review_count = movie_data.dig(:reviews, :total_results)
     @reviewers = movie_data.dig(:reviews, :results)
+    @buy_providers = format_providers(movie_data.dig(:"watch/providers", :results, :US, :buy))
+    @rent_providers = format_providers(movie_data.dig(:"watch/providers", :results, :US, :rent))
     #maybe create reviewer objects later
   end
 
@@ -47,4 +51,13 @@ class Movie
       cast_data.first(10).map {|cast| {name: cast[:name], character: cast[:character]}}
     end
   end
+
+  def format_providers(watch)
+    if watch.nil?
+      nil
+    else
+    watch.map {|provider| {logo_path: provider[:logo_path], provider: provider[:provider_name]}}
+    end
+  end
+  
 end
