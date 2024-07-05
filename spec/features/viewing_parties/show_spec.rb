@@ -8,7 +8,6 @@ RSpec.describe 'Viewing Party show', type: :feature do
     @viewing_party = ViewingParty.create!(duration: 200, start_time: "02:00 PM", date: Date.today + 1)
     visit user_movie_viewing_party_path(@user_1, @movie.id, @viewing_party.id)
   end
-
   # As a user, 
   # When I visit a Viewing Party's show page (`/users/:user_id/movies/:movie_id/viewing_party/:id`), 
   # I should see 
@@ -17,7 +16,6 @@ RSpec.describe 'Viewing Party show', type: :feature do
   # And I should see a data attribution for the JustWatch platform that reads: 
   # "Buy/Rent data provided by JustWatch",
   # as per TMDB's instructions.
-
   it 'can see data attribution for JustWatch and logos of video providers where to buy and rent movie', :vcr do
 
     expect(page).to have_content('Buy/Rent data provided by JustWatch')

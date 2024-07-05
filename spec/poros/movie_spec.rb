@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Movie do
-  # before(:each). vcr do
-  #   json = TmdbService.get_movie_by_id(157336)
-
-  #   movie = Movie.new(json)
-  # end
-
   it "can create Movie from hash and have attributes", :vcr do
     json = TmdbService.get_movie_by_id(157336)
     movie = Movie.new(json)

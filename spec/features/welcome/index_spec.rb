@@ -30,7 +30,5 @@ RSpec.describe 'Root Page, Welcome Index', type: :feature do
       it "They see a link to go back to the landing page (present at the top of all pages)" do
          expect(page).to have_link("Home")
       end
-
-     
    end
 end

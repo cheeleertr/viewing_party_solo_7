@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ViewingParty, type: :model do
-  describe "validations" do
-    it {}
-  end
-  
   before(:each) do
       @user_1 = User.create!(name: 'Sam', email: 'sam@email.com')
       @user_2 = User.create!(name: 'Tommy', email: 'tommy@email.com')

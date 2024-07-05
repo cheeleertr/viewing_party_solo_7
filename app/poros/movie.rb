@@ -21,9 +21,9 @@ class Movie
     @cast = format_cast_to_name_and_character(movie_data.dig(:credits, :cast))
     @review_count = movie_data.dig(:reviews, :total_results)
     @reviewers = movie_data.dig(:reviews, :results)
+    #maybe create reviewer objects later
     @buy_providers = format_providers(movie_data.dig(:"watch/providers", :results, :US, :buy))
     @rent_providers = format_providers(movie_data.dig(:"watch/providers", :results, :US, :rent))
-    #maybe create reviewer objects later
   end
 
   def format_runtime(total_minutes)
