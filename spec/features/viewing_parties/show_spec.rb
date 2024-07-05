@@ -5,7 +5,7 @@ RSpec.describe 'Viewing Party show', type: :feature do
     @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com')
     @user_2 = User.create!(name: 'Tommy', email: 'tommy@email.com')
     @movie = TmdbFacade.new.get_movie_by_id(157336)
-    @viewing_party = ViewingParty.create!(duration: 200, start_time: "02:00 PM", date: Date.today + 1)
+    @viewing_party = ViewingParty.create!(duration: 200, start_time: Time.now + 1, date: Date.today + 1)
     visit user_movie_viewing_party_path(@user_1, @movie.id, @viewing_party.id)
   end
   # As a user, 

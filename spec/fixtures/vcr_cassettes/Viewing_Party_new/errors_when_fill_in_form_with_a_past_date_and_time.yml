@@ -38,15 +38,15 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 b95cfb5fc55d930ff76b6dbfba308b40.cloudfront.net (CloudFront)
+      - 1.1 a5e934660f9817baef055c1ec689c0b6.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - MSP50-P2
       Alt-Svc:
       - h3=":443"; ma=86400
       X-Amz-Cf-Id:
-      - CAXy5-839wq8qPYxcZwM7xfhEU7TG2ZQ_oziOkCKHLbEtsHddwfqyg==
+      - Cqguo4Jyj7BSZ3cfuvx7xnxkVyJBfllqb4E5ZabUtTNNGYUZ1qZpfQ==
       Age:
-      - '2'
+      - '1422'
     body:
       encoding: UTF-8
       string: '{"adult":false,"backdrop_path":"/xJHokMbljvjADYdit5fK5VQsXEG.jpg","belongs_to_collection":null,"budget":165000000,"genres":[{"id":12,"name":"Adventure"},{"id":18,"name":"Drama"},{"id":878,"name":"Science
@@ -1872,7 +1872,7 @@ http_interactions:
         TV","display_priority":2},{"logo_path":"/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg","provider_id":3,"provider_name":"Google
         Play Movies","display_priority":3}],"flatrate":[{"logo_path":"/guv81FtHO7GmnFwwmJA7QmfkSnZ.jpg","provider_id":55,"provider_name":"ShowMax","display_priority":4}]},"ZM":{"link":"https://www.themoviedb.org/movie/157336-interstellar/watch?locale=ZM","flatrate":[{"logo_path":"/guv81FtHO7GmnFwwmJA7QmfkSnZ.jpg","provider_id":55,"provider_name":"ShowMax","display_priority":9}]},"ZW":{"link":"https://www.themoviedb.org/movie/157336-interstellar/watch?locale=ZW","flatrate":[{"logo_path":"/guv81FtHO7GmnFwwmJA7QmfkSnZ.jpg","provider_id":55,"provider_name":"ShowMax","display_priority":0}],"buy":[{"logo_path":"/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg","provider_id":3,"provider_name":"Google
         Play Movies","display_priority":1}]}}}}'
-  recorded_at: Fri, 05 Jul 2024 15:48:55 GMT
+  recorded_at: Fri, 05 Jul 2024 16:12:35 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/157336?api_key=DONT_SHARE_MY_SECRET_KEY&append_to_response=reviews,credits,watch/providers
@@ -1911,15 +1911,15 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 c77aeab3024e2cd98690f252e49562ac.cloudfront.net (CloudFront)
+      - 1.1 55111e952110eb701257618e8e013998.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - MSP50-P2
       Alt-Svc:
       - h3=":443"; ma=86400
       X-Amz-Cf-Id:
-      - HAAhKPtjyZJTy5f-uUnfLTg_Yop0Zn9eROw35vnp3rPrijn-4kyQig==
+      - 6uAjJsM0hnyZltQ_Zek50ig0qXuhuEYbdTEeMlkyu1FVWGHJ9IDb_A==
       Age:
-      - '2'
+      - '1422'
     body:
       encoding: UTF-8
       string: '{"adult":false,"backdrop_path":"/xJHokMbljvjADYdit5fK5VQsXEG.jpg","belongs_to_collection":null,"budget":165000000,"genres":[{"id":12,"name":"Adventure"},{"id":18,"name":"Drama"},{"id":878,"name":"Science
@@ -3745,7 +3745,7 @@ http_interactions:
         TV","display_priority":2},{"logo_path":"/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg","provider_id":3,"provider_name":"Google
         Play Movies","display_priority":3}],"flatrate":[{"logo_path":"/guv81FtHO7GmnFwwmJA7QmfkSnZ.jpg","provider_id":55,"provider_name":"ShowMax","display_priority":4}]},"ZM":{"link":"https://www.themoviedb.org/movie/157336-interstellar/watch?locale=ZM","flatrate":[{"logo_path":"/guv81FtHO7GmnFwwmJA7QmfkSnZ.jpg","provider_id":55,"provider_name":"ShowMax","display_priority":9}]},"ZW":{"link":"https://www.themoviedb.org/movie/157336-interstellar/watch?locale=ZW","flatrate":[{"logo_path":"/guv81FtHO7GmnFwwmJA7QmfkSnZ.jpg","provider_id":55,"provider_name":"ShowMax","display_priority":0}],"buy":[{"logo_path":"/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg","provider_id":3,"provider_name":"Google
         Play Movies","display_priority":1}]}}}}'
-  recorded_at: Fri, 05 Jul 2024 15:48:55 GMT
+  recorded_at: Fri, 05 Jul 2024 16:12:35 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/157336?api_key=DONT_SHARE_MY_SECRET_KEY&append_to_response=reviews,credits,watch/providers
@@ -3784,15 +3784,15 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 b95cfb5fc55d930ff76b6dbfba308b40.cloudfront.net (CloudFront)
+      - 1.1 24f41ad6cec46a6e94a3e850d746e294.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - MSP50-P2
       Alt-Svc:
       - h3=":443"; ma=86400
       X-Amz-Cf-Id:
-      - zDZqqdbRGVDuTxVcknZhM5ZwpNf_BsrW_p8irXFTghXm3ZGJUuLE2g==
+      - PKUU_ADxSkdv-F2a9U8MSsmOtsE8hzTh7Rim5nIJ6Puq81lv9PdKmg==
       Age:
-      - '2'
+      - '1422'
     body:
       encoding: UTF-8
       string: '{"adult":false,"backdrop_path":"/xJHokMbljvjADYdit5fK5VQsXEG.jpg","belongs_to_collection":null,"budget":165000000,"genres":[{"id":12,"name":"Adventure"},{"id":18,"name":"Drama"},{"id":878,"name":"Science
@@ -5618,5 +5618,5 @@ http_interactions:
         TV","display_priority":2},{"logo_path":"/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg","provider_id":3,"provider_name":"Google
         Play Movies","display_priority":3}],"flatrate":[{"logo_path":"/guv81FtHO7GmnFwwmJA7QmfkSnZ.jpg","provider_id":55,"provider_name":"ShowMax","display_priority":4}]},"ZM":{"link":"https://www.themoviedb.org/movie/157336-interstellar/watch?locale=ZM","flatrate":[{"logo_path":"/guv81FtHO7GmnFwwmJA7QmfkSnZ.jpg","provider_id":55,"provider_name":"ShowMax","display_priority":9}]},"ZW":{"link":"https://www.themoviedb.org/movie/157336-interstellar/watch?locale=ZW","flatrate":[{"logo_path":"/guv81FtHO7GmnFwwmJA7QmfkSnZ.jpg","provider_id":55,"provider_name":"ShowMax","display_priority":0}],"buy":[{"logo_path":"/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg","provider_id":3,"provider_name":"Google
         Play Movies","display_priority":1}]}}}}'
-  recorded_at: Fri, 05 Jul 2024 15:48:55 GMT
+  recorded_at: Fri, 05 Jul 2024 16:12:35 GMT
 recorded_with: VCR 6.2.0
