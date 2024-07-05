@@ -19,4 +19,9 @@ class TmdbService
     response = conn.get("/3/movie/#{movie_id}?append_to_response=reviews,credits,watch/providers")
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.get_similar_movies_by_id(movie_id)
+    response = conn.get("/3/movie/#{movie_id}/similar")
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end

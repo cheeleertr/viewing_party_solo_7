@@ -1,0 +1,13 @@
+<h2>Similar Movies</h2>
+<div class="similar_movies">
+  <% @movies.each do |movie| %>
+    <div class="movie">
+      <div class="image"><%= image_tag("https://image.tmdb.org/t/p/w200/#{movie.poster_path}", alt: movie.title) %></div>
+      <div class="title">Title: <%= movie.title %></div>
+      <div class="vote_average">Rating: <%= movie.vote_average %></div>
+      <div class="overview">Overview: <%= movie.overview %></div>
+      <div class="release_date">Release Date: <%= movie.release_date %></div>
+    </div>
+    <br><br>
+  <% end %>
+</div>

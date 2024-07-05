@@ -20,4 +20,11 @@ class TmdbFacade
     json = TmdbService.get_movie_by_id(id)
     Movie.new(json)
   end
+
+  def get_similar_movies_by_id(id)
+    json = TmdbService.get_similar_movies_by_id(id)
+    json[:results].map do |movie_data|
+      Movie.new(movie_data)
+    end
+  end
 end
