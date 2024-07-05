@@ -9,4 +9,8 @@ class User < ApplicationRecord
       where.not(id: user_id.to_i)
    end
 
+   def hosted_parties
+      binding.pry
+      self.viewing_parties.where(host: self.id)
+   end
 end

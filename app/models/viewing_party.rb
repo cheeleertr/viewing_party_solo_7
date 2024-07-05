@@ -5,7 +5,6 @@ class ViewingParty < ApplicationRecord
    validate :date_cannot_be_in_the_past,
       :start_time_cannot_be_in_the_past,
       # :start_time_must_be_valid_time
-      # :duration_cannot_be_lower_than_runtime
 
    def find_host
       users.where("user_parties.host = true").first
@@ -28,10 +27,4 @@ class ViewingParty < ApplicationRecord
          errors.add(:start_time, "must be a valid time format")
       end
    end
-
-   # def duration_cannot_be_lower_than_runtime
-   #    if duration < runtime
-   #       errors.add(:duration, "can't be lower than movie runtime")
-   #    end
-   # end
 end

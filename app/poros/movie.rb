@@ -9,7 +9,9 @@ class Movie
               :review_count, 
               :reviewers,
               :buy_providers,
-              :rent_providers
+              :rent_providers,
+              :release_date,
+              :poster_path
 
   def initialize(movie_data)
     @id = movie_data[:id]
@@ -21,9 +23,11 @@ class Movie
     @cast = format_cast_to_name_and_character(movie_data.dig(:credits, :cast))
     @review_count = movie_data.dig(:reviews, :total_results)
     @reviewers = movie_data.dig(:reviews, :results)
+    #maybe create reviewer objects later
     @buy_providers = format_providers(movie_data.dig(:"watch/providers", :results, :US, :buy))
     @rent_providers = format_providers(movie_data.dig(:"watch/providers", :results, :US, :rent))
-    #maybe create reviewer objects later
+    @poster_path = movie_data[:poster_path]
+    @release_date = movie_data[:release_date]
   end
 
   def format_runtime(total_minutes)

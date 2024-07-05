@@ -23,14 +23,6 @@ RSpec.describe 'Movie Index', type: :feature do
         end
         expect(page).to have_css(".vote_average")
       end
-
-      # is there a way to save record into variable to use for test assertion
-      # so if the response updates the variable will too
-
-      # expect(page).to have_content("Title: ")
-      # expect(page).to have_link("movie[:original_title]")
-      # expect(page).to have_content("Vote Average: ")
-      # expect(page).to have_link("movie[:vote_average]")
     end
 
     it 'can see results of search by movie title', :vcr do
@@ -43,10 +35,6 @@ RSpec.describe 'Movie Index', type: :feature do
         expect(page).to have_css(".title")
         expect(page).to have_css(".vote_average")
       end
-      # expect(page).to have_content("Title: Interstellar")
-      # expect(page).to have_link("movie[:original_title]")
-      # expect(page).to have_content("Vote Average: ")
-      # expect(page).to have_link("movie[:vote_average]")
     end
   end
 end

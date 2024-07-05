@@ -6,10 +6,8 @@ class ViewingPartyController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:user_id])
     @party = ViewingParty.find(params[:id])
     @movie = TmdbFacade.new.get_movie_by_id(params[:movie_id])
-    # binding.pry
   end
 
   def create

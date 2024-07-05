@@ -1,27 +1,27 @@
 <%= button_to "Create Viewing Party", new_user_movie_viewing_party_path(@user, @movie), method: :get %>
 <%= button_to "Discover Top Rated Movies", user_movies_path(@user), method: :get %>
+<%= button_to "Get Similar Movies", user_movie_similar_index_path(@user, @movie.id), method: :get %>
 
 <h2>Movie: <%= @movie.title %></h2>
 
-  <div>Rating: <%= @movie.vote_average %></div><br>
-  <div>Runtime: <%= @movie.format_runtime(@movie.runtime) %></div><br>
-  <div>Genres: <%= @movie.genre %></div><br>
-  <div>Summary: <%= @movie.overview %></div><br>
-  <div id="cast">Cast: <br>
-    <% @movie.cast.each do |cast_member| %>
-      <div class="cast_member"><%= "#{cast_member[:name]} as #{cast_member[:character]}" %></div>
-    <% end %>
-  </div><br>
-  <div>Total Reviews: <%= @movie.review_count %></div><br>
-  <div class="reviews">Reviews: 
-    <% @movie.reviewers.each do |reviewer| %>
-      <ul class="review">
-        <li class="author">Author: <%= reviewer[:author] %><br>
-        <div class="rating">Rating: <%= reviewer[:author_details][:rating] %></div>
-        <div class="content">Content: <%= reviewer[:content] %></div>
-        </li>
-      </ul>
-    <% end %>
-  
-  </div>
+<div>Rating: <%= @movie.vote_average %></div><br>
+<div>Runtime: <%= @movie.format_runtime(@movie.runtime) %></div><br>
+<div>Genres: <%= @movie.genre %></div><br>
+<div>Summary: <%= @movie.overview %></div><br>
+<div id="cast">Cast: <br>
+  <% @movie.cast.each do |cast_member| %>
+    <div class="cast_member"><%= "#{cast_member[:name]} as #{cast_member[:character]}" %></div>
+  <% end %>
+</div><br>
+<div>Total Reviews: <%= @movie.review_count %></div><br>
+<div class="reviews">Reviews: 
+  <% @movie.reviewers.each do |reviewer| %>
+    <ul class="review">
+      <li class="author">Author: <%= reviewer[:author] %><br>
+      <div class="rating">Rating: <%= reviewer[:author_details][:rating] %></div>
+      <div class="content">Content: <%= reviewer[:content] %></div>
+      </li>
+    </ul>
+  <% end %>
+</div>
 
