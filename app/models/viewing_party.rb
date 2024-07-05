@@ -21,10 +21,4 @@ class ViewingParty < ApplicationRecord
          errors.add(:start_time, "can't be in the past")
       end
    end
-
-   def start_time_must_be_valid_time
-      if start_time.present? && Time.strptime(start_time)
-         errors.add(:start_time, "must be a valid time format")
-      end
-   end
 end

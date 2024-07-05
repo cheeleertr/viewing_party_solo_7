@@ -26,7 +26,7 @@ RSpec.describe 'Movie Show', type: :feature do
       visit user_movie_path(@user_1.id, movie.id)
 
       expect(page).to have_button('Create Viewing Party')
-      expect(page).to have_button('Discover Top Rated Movies')
+      expect(page).to have_button('Discover Movies')
     end
 
     it 'has movie attributes' do
