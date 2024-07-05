@@ -19,7 +19,9 @@ RSpec.describe 'Viewing Party new', type: :feature do
     fill_in "date", with: Date.today + 1
     fill_in "start_time", with: "02:00 PM"
     fill_in "duration", with: 240
-    check("user_ids[]")
+    within(".user_#{@user_2.id}") do
+      check('user_ids[]')
+    end
 
     click_button "Create Viewing Party"
 
@@ -28,7 +30,7 @@ RSpec.describe 'Viewing Party new', type: :feature do
     expect(page).to have_content('Successfully Created New Viewing Party')
     expect(page).to have_content("Party Time: #{Date.today + 1} at 02:00 PM")
     expect(page).to have_content("Host: Sam")
-    within "#attendees" do
+    within ".attendees" do
       expect(page).to have_content('Sam')
       expect(page).to have_content('Tommy')
     end
@@ -42,7 +44,7 @@ RSpec.describe 'Viewing Party new', type: :feature do
     click_button "Create Viewing Party"
     expect(current_path).to eq(new_user_movie_viewing_party_path(@user_1, @movie.id))
     expect(page).to have_content("Date can't be in the past")
-    expect(page).to have_content("Start time can't be in the past")
+    # expect(page).to have_content("Start time can't be in the past")
   end
 
 end

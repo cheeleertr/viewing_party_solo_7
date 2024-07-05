@@ -9,10 +9,15 @@
 
     <%= f.label :start_time, "Start Time:" %>
     <%= f.time_field :start_time, format: "%H:%M", class: "form-control" %><br>
+
+    <%= hidden_field_tag :movie_id, @movie.id %>
+    <%= hidden_field_tag :movie_title, @movie.title %>
+    <%= hidden_field_tag :movie_poster_path, @movie.poster_path %>
+    <%= hidden_field_tag :movie_runtime, @movie.runtime %>
 <br>
 <div>Invite Other Users
     <% @other_users.each do |user| %>
-        <div>
+        <div class="user_<%=user.id=%>">
             <%= check_box_tag "user_ids[]", user.id, id: "user_#{user.id}" %>
             <%= label_tag "user_#{user.id}", user.email %>
         </div>

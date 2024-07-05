@@ -1,15 +1,52 @@
 <h1><%= "#{@user.name}'s Dashboard" %></h1><br>
 
+<%= button_to "Discover Movies", user_discover_index_path(@user), method: :get %>
+
 <section class="invited_parties">
-  <% @user.viewing_parties.each do |party| %>
-    <div class="viewing_party">
-      Party Time: <%= party.date %> at <%= party.start_time %><br>
-      Host: <%= party.find_host.name %><br>
-      Who's Coming? <br/>
-      <div id="attendees">
+  <h3>Invited to Viewing Parties</h3>
+  <% @invited_parties.each do |party| %>
+    <div class="party">
+      <div class="title">Title: <%= link_to party.movie_title, user_movie_path(@user, party.movie_id) %></div>
+      <div class="image"><%= image_tag("https://image.tmdb.org/t/p/w200/#{party.movie_poster_path}", alt: party.movie_title) %></div>
+      <div class="time">Party Time: <%= party.date %> at <%= party.start_time %></div>
+      <div class="host">Host: <%= party.find_host.name %></div>
+      Who's Coming?
+      <div class="attendees">
         <ol>
           <% party.users.each do |attendee| %>
-              <li><%= attendee.name %> </li>
+              <li class="name">
+                <% if attendee.name == @user.name %>
+                  <strong><%= attendee.name %></strong>
+                <% else %>
+                  <%= attendee.name %> 
+                <% end %> 
+              </li>
+          <% end %>
+        </ol>
+      </div>
+    </div><br>
+  <% end %>
+</section>
+
+<section class="hosted_parties">
+  <h3>Hosted Parties</h3>
+  <% @hosted_parties.each do |party| %>
+    <div class="party">
+      <div class="title">Title: <%= link_to party.movie_title, user_movie_path(@user, party.movie_id) %></div>
+      <div class="image"><%= image_tag("https://image.tmdb.org/t/p/w200/#{party.movie_poster_path}", alt: party.movie_title) %></div>
+      <div class="time">Party Time: <%= party.date %> at <%= party.start_time %></div>
+      <div class="host">Host: <%= party.find_host.name %></div>
+      Who's Coming?
+      <div class="attendees">
+        <ol>
+          <% party.users.each do |attendee| %>
+              <li class="name">
+                <% if attendee.name == @user.name %>
+                  <strong><%= attendee.name %></strong>
+                <% else %>
+                  <%= attendee.name %> 
+                <% end %> 
+              </li>
           <% end %>
         </ol>
       </div>

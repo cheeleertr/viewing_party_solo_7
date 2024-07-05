@@ -10,7 +10,10 @@ class User < ApplicationRecord
    end
 
    def hosted_parties
-      binding.pry
-      self.viewing_parties.where(host: self.id)
+      self.viewing_parties.where("user_parties.host = true")
+   end
+
+   def invited_parties
+      self.viewing_parties.where.not("user_parties.host = true")
    end
 end

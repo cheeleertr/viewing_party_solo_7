@@ -12,9 +12,31 @@
 end
 
 # create Parties
-5.times do 
-   ViewingParty.create!(duration: rand(0..240), date: Faker::Date.forward(days: rand(1..14)), start_time: Time.new.strftime("%H:%M"))
+2.times do 
+   ViewingParty.create!(duration: rand(200..240), 
+   date: Faker::Date.forward(days: rand(1..14)), 
+   start_time: Time.new.strftime("%H:%M"),
+   movie_id: 122, 
+   movie_title: "The Lord of the Rings: The Return of the King", 
+   movie_poster_path: "/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg" 
+   )
 end
+2.times do 
+   ViewingParty.create!(duration: rand(200..240), 
+   date: Faker::Date.forward(days: rand(1..14)), 
+   start_time: Time.new.strftime("%H:%M"),
+   movie_id: 138, 
+   movie_title: "The Godfather", 
+   movie_poster_path: "/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" 
+   )
+end
+ViewingParty.create!(duration: rand(200..240), 
+date: Faker::Date.forward(days: rand(1..14)), 
+start_time: Time.new.strftime("%H:%M"),
+movie_id: 157336, 
+movie_title: "Interstellar", 
+movie_poster_path: "/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" 
+)
 
 # set Hosts 
 UserParty.create!(viewing_party: ViewingParty.first, user: User.first, host: true)

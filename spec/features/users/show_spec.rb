@@ -9,10 +9,41 @@ RSpec.describe 'User Dashboard', type: :feature do
 
     @movie_1 = TmdbFacade.new.get_movie_by_id(155)
     @movie_2 = TmdbFacade.new.get_movie_by_id(157336)
+    @movie_3 = TmdbFacade.new.get_movie_by_id(122)
 
-    @party_1 = ViewingParty.create!(duration: 200, start_time: "05:00 PM", date: Date.today + 2)
-    @party_2 = ViewingParty.create!(duration: 200, start_time: "02:00 PM", date: Date.today + 1)
-    @party_3 = ViewingParty.create!(duration: 200, start_time: "02:00 PM", date: Date.today + 1)
+    @party_1 = ViewingParty.create!(
+      duration: 200, 
+      start_time: "05:00 PM", 
+      date: Date.today + 2, 
+      movie_id: @movie_1.id, 
+      movie_title: @movie_1.title, 
+      movie_poster_path: @movie_1.poster_path)
+
+
+    @party_2 = ViewingParty.create!(
+      duration: 200, 
+      start_time: "05:00 PM", 
+      date: Date.today + 2, 
+      movie_id: @movie_2.id, 
+      movie_title: @movie_2.title, 
+      movie_poster_path: @movie_2.poster_path)
+
+    @party_3 = ViewingParty.create!(
+      duration: 200, 
+      start_time: "05:00 PM", 
+      date: Date.today + 2, 
+      movie_id: @movie_3.id, 
+      movie_title: @movie_3.title, 
+      movie_poster_path: @movie_3.poster_path)
+
+    @user_1.user_parties.create!(user_id: @user_1.id, viewing_party_id: @party_1.id, host: true)
+    @user_2.user_parties.create!(user_id: @user_2.id, viewing_party_id: @party_2.id, host: true)
+    @user_2.user_parties.create!(user_id: @user_2.id, viewing_party_id: @party_1.id, host: true)
+    @user_3.user_parties.create!(user_id: @user_3.id, viewing_party_id: @party_1.id, host: true)
+    @user_3.user_parties.create!(user_id: @user_3.id, viewing_party_id: @party_3.id, host: true)
+    @user_1.user_parties.create!(user_id: @user_1.id, viewing_party_id: @party_2.id, host: false)
+    @user_1.user_parties.create!(user_id: @user_1.id, viewing_party_id: @party_3.id, host: false)
+# binding.pry
     visit user_path(@user_1)
   end
 # As a user,
@@ -29,10 +60,10 @@ RSpec.describe 'User Dashboard', type: :feature do
 # - Date and Time of Event
 # - That I am the host of the party
 # - List of friends invited to the viewing party
-  xit 'can see invited viewing parties', :vcr do
+  it 'can see invited viewing parties', :vcr do
 
     expect(page).to have_content('Invited to Viewing Parties')
-
+# save_and_open_page
     within(".invited_parties") do
       within(first(".party")) do
         expect(page).to have_css(".title")
@@ -42,7 +73,13 @@ RSpec.describe 'User Dashboard', type: :feature do
         expect(page).to have_css(".image")
         expect(page).to have_css(".time")
         expect(page).to have_css(".host")
-        expect(page).to have_css(".invited")
+        expect(page).to have_css(".attendees")
+        within(first(".attendees")) do
+          expect(page).to have_content("Tommy")
+          expect(page).to have_content("Sam")
+          expect(page).to have_css(".name")
+        end
+      
       end
     end
 
@@ -55,7 +92,13 @@ RSpec.describe 'User Dashboard', type: :feature do
         expect(page).to have_css(".image")
         expect(page).to have_css(".time")
         expect(page).to have_css(".host")
-        expect(page).to have_css(".invited")
+        expect(page).to have_css(".attendees")
+        within(first(".attendees")) do
+          expect(page).to have_content("Tommy")
+          expect(page).to have_content("Sam")
+          expect(page).to have_content("Bob")
+          expect(page).to have_css(".name")
+        end
       end
     end
   end
