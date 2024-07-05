@@ -4,4 +4,9 @@ class User < ApplicationRecord
 
    has_many :user_parties
    has_many :viewing_parties, through: :user_parties
+
+   def self.all_except(user_id)
+      where.not(id: user_id.to_i)
+   end
+
 end

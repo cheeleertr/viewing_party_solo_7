@@ -1,0 +1,22 @@
+<h2><%= @movie.title %></h2>
+
+<%= form_with url: user_movie_viewing_party_index_path(@user, @movie.id), method: :post, local: true do |f| %>
+    <%= f.label :duration, "Duration of Viewing Party (minutes):" %>
+    <%= f.number_field :duration, class: "form-control", value: @movie.runtime, min: @movie.runtime, max: 720 %><br>
+
+    <%= f.label :date, "When:" %>
+    <%= f.date_field :date, class: "form-control" %><br>
+
+    <%= f.label :start_time, "Start Time:" %>
+    <%= f.time_field :start_time, format: "%H:%M", class: "form-control" %><br>
+<br>
+<div>Invite Other Users
+    <% @other_users.each do |user| %>
+        <div>
+            <%= check_box_tag "user_ids[]", user.id, id: "user_#{user.id}" %>
+            <%= label_tag "user_#{user.id}", user.email %>
+        </div>
+    <% end %>
+</div><br>
+    <%= f.submit "Create Viewing Party", class: "btn btn-primary" %>
+<% end %>
