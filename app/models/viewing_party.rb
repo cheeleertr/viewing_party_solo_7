@@ -19,9 +19,7 @@ class ViewingParty < ApplicationRecord
    end
 
    def start_time_cannot_be_in_the_past
-      if start_time.present? && start_time < Time.now
-         # date_cannot_be_in_the_past && 
-         
+      if date_cannot_be_in_the_past && start_time.present? && start_time < Time.now
          errors.add(:start_time, "can't be in the past")
       end
    end
