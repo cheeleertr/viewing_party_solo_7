@@ -13,16 +13,15 @@ RSpec.describe 'User Dashboard', type: :feature do
 
     @party_1 = ViewingParty.create!(
       duration: 200, 
-      start_time: "05:00 PM", 
-      date: Date.today + 2, 
+      start_time: Time.now + 1, 
+      date: Date.today + 1, 
       movie_id: @movie_1.id, 
       movie_title: @movie_1.title, 
       movie_poster_path: @movie_1.poster_path)
 
-
     @party_2 = ViewingParty.create!(
       duration: 200, 
-      start_time: "05:00 PM", 
+      start_time: Time.now + 1, 
       date: Date.today + 2, 
       movie_id: @movie_2.id, 
       movie_title: @movie_2.title, 
@@ -30,8 +29,8 @@ RSpec.describe 'User Dashboard', type: :feature do
 
     @party_3 = ViewingParty.create!(
       duration: 200, 
-      start_time: "05:00 PM", 
-      date: Date.today + 2, 
+      start_time: Time.now + 1, 
+      date: Date.today + 3, 
       movie_id: @movie_3.id, 
       movie_title: @movie_3.title, 
       movie_poster_path: @movie_3.poster_path)
@@ -79,7 +78,6 @@ RSpec.describe 'User Dashboard', type: :feature do
           expect(page).to have_content("Sam")
           expect(page).to have_css(".name")
         end
-      
       end
     end
 
