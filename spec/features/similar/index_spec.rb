@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Similar Movie index', type: :feature do
   before(:each) do
-    @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com')
+    @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com', password: "same")
     @movie = TmdbFacade.new.get_movie_by_id(157336)
   end
   # As a user, 

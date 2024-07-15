@@ -8,7 +8,7 @@ RSpec.describe Movie do
     expect(movie).to be_a Movie
     expect(movie.title).to eq("Interstellar")
     expect(movie.id).to eq(157336)
-    expect(movie.vote_average).to eq(8.436)
+    expect(movie.vote_average).to eq(8.4)
     expect(movie.runtime).to eq(169)
     expect(movie.genre).to eq("Adventure, Drama, Science Fiction")
     expect(movie.overview).to eq("The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.")

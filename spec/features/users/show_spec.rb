@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'User Dashboard', type: :feature do
   before(:each) do
-    @user_1 = User.create!(name: 'Tommy', email: 'tommy@email.com')
-    @user_2 = User.create!(name: 'Sam', email: 'sam@email.com')
-    @user_3 = User.create!(name: 'Bob', email: 'bob@email.com')
-    @user_4 = User.create!(name: 'Jimmy', email: 'jimmy@email.com')
+    @user_1 = User.create!(name: 'Tommy', email: 'tommy@email.com', password: "same")
+    @user_2 = User.create!(name: 'Sam', email: 'sam@email.com', password: "same")
+    @user_3 = User.create!(name: 'Bob', email: 'bob@email.com', password: "same")
+    @user_4 = User.create!(name: 'Jimmy', email: 'jimmy@email.com', password: "same")
 
     @movie_1 = TmdbFacade.new.get_movie_by_id(155)
     @movie_2 = TmdbFacade.new.get_movie_by_id(157336)
