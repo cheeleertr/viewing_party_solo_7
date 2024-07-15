@@ -7,8 +7,8 @@ RSpec.describe ViewingParty, type: :model do
   end
 
   before(:each) do
-      @user_1 = User.create!(name: 'Sam', email: 'sam@email.com')
-      @user_2 = User.create!(name: 'Tommy', email: 'tommy@email.com')
+      @user_1 = User.create!(name: 'Sam', email: 'sam@email.com', password: "same")
+      @user_2 = User.create!(name: 'Tommy', email: 'tommy@email.com', password: "same")
       @party = ViewingParty.create!(date: Date.today + 1, start_time: Time.now + 1, duration: 175)
       UserParty.create!(user_id: @user_1.id, viewing_party_id: @party.id, host: true)
       UserParty.create!(user_id: @user_2.id, viewing_party_id: @party.id, host: false)

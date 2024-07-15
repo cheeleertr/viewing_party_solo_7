@@ -63,5 +63,4 @@ class Movie
     watch.map {|provider| {logo_path: provider[:logo_path], provider: provider[:provider_name]}}
     end
   end
-  
 end

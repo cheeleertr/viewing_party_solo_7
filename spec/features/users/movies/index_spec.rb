@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Movie Index', type: :feature do
   before(:each) do
-    @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com')
+    @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com', password: "same")
   end
   # When I visit the discover movies page ('/users/:id/discover'),
   # and click on either the Discover Top Rated Movies button or fill out the movie title search and click the Search button,

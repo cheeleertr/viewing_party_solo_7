@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Movie Show', type: :feature do
   before(:each) do
-    @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com')
-    @user_2 = User.create!(name: 'Tommy', email: 'tommy@email.com')
+    @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com', password: "same")
+    @user_2 = User.create!(name: 'Tommy', email: 'tommy@email.com', password: "same")
   end
   # As a user, 
   # When I visit a movie's detail page (`/users/:user_id/movies/:movie_id`) where :id is a valid user id,
@@ -19,7 +19,7 @@ RSpec.describe 'Movie Show', type: :feature do
   # - List the first 10 cast members (characters & actress/actors)
   # - Count of total reviews
   # - Each review's author and information
-  
+
   describe 'movie details' do
     it 'has buttons to create viewing party and return to discover page', :vcr do
       movie = TmdbFacade.new.get_movie_by_id(157336)

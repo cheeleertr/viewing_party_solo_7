@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Viewing Party new', type: :feature do
   before(:each) do
-    @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com')
-    @user_2 = User.create!(name: 'Tommy', email: 'tommy@email.com')
+    @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com', password: "same")
+    @user_2 = User.create!(name: 'Tommy', email: 'tommy@email.com', password: "same")
     @movie = TmdbFacade.new.get_movie_by_id(157336)
     
     visit new_user_movie_viewing_party_path(@user_1, @movie.id)
