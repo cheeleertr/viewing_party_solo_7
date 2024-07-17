@@ -43,6 +43,16 @@ RSpec.describe 'User Dashboard', type: :feature do
     @user_1.user_parties.create!(user_id: @user_1.id, viewing_party_id: @party_2.id, host: false)
     @user_1.user_parties.create!(user_id: @user_1.id, viewing_party_id: @party_3.id, host: false)
 # binding.pry
+    visit login_path
+
+    fill_in :email, with: @user_1.email
+    fill_in :password, with: @user_1.password
+    fill_in :location, with: "Denver, CO"
+
+    within(".field") do
+      click_on "Log In"
+    end
+    
     visit user_path(@user_1)
   end
 # As a user,

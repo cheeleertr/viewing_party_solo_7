@@ -1,4 +1,6 @@
 class ViewingPartyController < ApplicationController
+  before_action :require_user, only: :create
+
   def new
     @user = User.find(params[:user_id])
     @other_users = User.all_except(params[:user_id])
@@ -29,4 +31,11 @@ class ViewingPartyController < ApplicationController
   def viewing_party_params
     params.permit(:duration, :date, :start_time, :movie_id, :movie_title, :movie_poster_path)
   end
+
+  def require_user
+    if !current_user
+      flash[:error] = "You Must Be Logged In"
+      redirect_to root_path
+    end
+ end
 end
