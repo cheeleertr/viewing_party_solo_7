@@ -5,7 +5,16 @@ RSpec.describe 'Viewing Party new', type: :feature do
     @user_1 = User.create!(name: 'Sam', email: 'sam_t@email.com', password: "same")
     @user_2 = User.create!(name: 'Tommy', email: 'tommy@email.com', password: "same")
     @movie = TmdbFacade.new.get_movie_by_id(157336)
-    
+    visit login_path
+
+    fill_in :email, with: @user_1.email
+    fill_in :password, with: @user_1.password
+    fill_in :location, with: "Denver, CO"
+
+    within(".field") do
+      click_on "Log In"
+    end
+
     visit new_user_movie_viewing_party_path(@user_1, @movie.id)
   end
 # When I visit the new viewing party page ('/users/:user_id/movies/:movie_id/viewing_party/new', where :user_id is a valid user's id and :movie_id is a valid Movie id from the API),

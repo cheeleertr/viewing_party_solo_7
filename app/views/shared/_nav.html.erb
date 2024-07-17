@@ -2,6 +2,12 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="nav navbar-nav pull-right">
       <li><%= link_to 'Home', root_path, style: 'pull-right' %>
+      <% if session[:user_id] %>
+      <li><%= link_to 'Log Out', logout_path, data: {turbo_method: :post}, style: 'pull-right' %>
+      <li><%= link_to 'Dashboard', user_path(session[:user_id]), style: 'pull-right' %>
+      <% else %>
+      <li><%= link_to "Log In", login_path, style: 'pull-right' %>
+      <% end %>
     </ul>
   </nav>
 </div>
